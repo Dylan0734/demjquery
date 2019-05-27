@@ -38,7 +38,7 @@ $(document).ready(function(){
     $.ajax(brandSettings).done(function(response){
         var brand="";
         $.each(response, function(i, obj){
-            brand+='<button type="button" class="list-group-item list-group-item-action">'+obj.brand+'</button>';
+            brand+='<a class="list-group-item list-group-item-action"  href="category.html?id='+obj.brand+'">'+obj.brand+'</a>';
         });+
         $("#brandList").append(brand);
     });
