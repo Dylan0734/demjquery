@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Parkour - </title>
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <link rel="stylesheet" href="menu.css" type="text/css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" crossorigin="anonymous"></script>
@@ -18,6 +19,7 @@
 
 
     <script src="categoryScript.js"></script>
+    <script src="footer.js"></script>
 
     <link rel="apple-touch-icon" sizes="180x180" href="./logo/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="./logo/favicon-32x32.png">
@@ -29,26 +31,75 @@
         body {
             background-color: ghostwhite;
         }
+        .card:hover{
+            border:1px solid cadetblue;
+            border-radius:4px;
+            -webkit-transform:scale(1.02);
+            transform:scale(1.02);
+            box-shadow:3px 3px 4px 2px grey;
+            transition:0.3s;
+        }
+
+        .list-group-item:hover, .list-group-item-action:hover{
+            -webkit-transform:scale(1.05);
+            transform:scale(1.05);
+            background-color:aqua;
+            transition:0.3s;
+        }
+        .list-group-item, .list-group-item-action{
+            -webkit-transform:scale(1);
+            transform:scale(1);
+            background-color:white;
+            transition:0.3s;
+        }
         .card {
             margin-top: 10%;
+            border-radius:4px;
+            border:1px solid white;
+            -webkit-transform:scale(1);
+            transform:scale(1);
+            transition:0.3s;
+            box-shadow:1px 1px 2px 2px grey;
         }
         .footer {
             width: 100%;
             height: 50px;
             color: white;
-            background-color: black;
+            background-color: rgb(20,20,20);
             text-align: center;
             margin-top: 30px;
+            opacity:0.8;
         }
+
         .menu {
-            background: linear-gradient(to right, blue, darkblue, blue);
+            background-color:rgb(20,20,20);
             color: white;
             margin-bottom: 20px;
             display: block;
+            border-radius:3px;
+            border:0px solid lightgrey;
+        }
+        #backgroundOP{
+            background:url("https://wallpaperset.com/w/full/3/9/c/315017.jpg");
+            opacity:0.5;
+            width:100%;
+            height:100%; 
+            z-index:-2;
+            position:fixed;
         }
         .nav-link {
             color: white;
             text-decoration: none;
+            display:block;
+            font-size:18px;
+            transition:0.2s;
+        }
+        .nav-link:hover {
+            color: white;
+            text-decoration: none;
+            background-color:darkgrey;
+            border-radius:4px;
+            transition:0.5s;
         }
         .card-body {
             text-decoration: none;
@@ -57,10 +108,105 @@
         a:hover {
             text-decoration: none;
         }
+
+        .spinner {
+            margin: 100px auto;
+            width: 100px;
+            height: 70px;
+            position: absolute;
+            display:flex;
+
+        }
+
+        .cube1,
+        .cube2 {
+            background-color: yellow;
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            position: absolute;
+            display:flex;
+            top:50%;
+            left:50%;
+
+            -webkit-animation: sk-cubemove 1.8s infinite ease-in-out;
+            animation: sk-cubemove 1.8s infinite ease-in-out;
+        }
+
+        .cube2 {
+            -webkit-animation-delay: -0.9s;
+            animation-delay: -0.9s;
+        }
+
+        #loader{
+            width:100%;
+            height:100vh;
+            display:flex;
+            position:fixed;
+            z-index: 3;
+        }
+
+        #wrap{
+            position:fixed;
+            height:100vh;
+            width:100%;
+            margin: 0px;
+
+        }
+
+        
+
+        @-webkit-keyframes sk-cubemove {
+            25% {
+                -webkit-transform: translateX(42px) rotate(-90deg) scale(0.5)
+            }
+            50% {
+                -webkit-transform: translateX(42px) translateY(42px) rotate(-180deg)
+            }
+            75% {
+                -webkit-transform: translateX(0px) translateY(42px) rotate(-270deg) scale(0.5)
+            }
+            100% {
+                -webkit-transform: rotate(-360deg)
+            }
+        }
+
+        @keyframes sk-cubemove {
+            25% {
+                transform: translateX(42px) rotate(-90deg) scale(0.5);
+                -webkit-transform: translateX(42px) rotate(-90deg) scale(0.5);
+            }
+            50% {
+                transform: translateX(42px) translateY(42px) rotate(-179deg);
+                -webkit-transform: translateX(42px) translateY(42px) rotate(-179deg);
+            }
+            50.1% {
+                transform: translateX(42px) translateY(42px) rotate(-180deg);
+                -webkit-transform: translateX(42px) translateY(42px) rotate(-180deg);
+            }
+            75% {
+                transform: translateX(0px) translateY(42px) rotate(-270deg) scale(0.5);
+                -webkit-transform: translateX(0px) translateY(42px) rotate(-270deg) scale(0.5);
+            }
+            100% {
+                transform: rotate(-360deg);
+                -webkit-transform: rotate(-360deg);
+            }
+        }
     </style>
 </head>
 
-<body>
+<body onload="myFunction()">
+<div id="backgroundOP">
+</div>
+<div id="loader">
+        <div class="spinner"></div>
+        <div class="cube1"></div>
+        <div class="cube2"></div>
+</div>
+<div id="wrap">
     <div class="menu">
         <div style="width:49%; display:inline-block;">
             <h3> Parkour</h3>
@@ -69,16 +215,42 @@
         <div style="width:49%; display:inline-block;">
             <ul class="nav justify-content-end">
                 <li class="nav-item">
-                    <a class="nav-link active" href="#">Home</a>
+                    <a class="nav-link active" href="index.html">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
-                </li>
+                    <div class="dropdown show">
+                        <a class="nav-link" href="#" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Log-In
+                        </a>
+
+                        <div class="dropdown-menu">
+                            <form class="px-4 py-3">
+                                <div class="form-group">
+                                    <label for="exampleDropdownFormEmail1">Email address</label>
+                                    <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleDropdownFormPassword1">Password</label>
+                                    <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
+                                </div>
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" id="dropdownCheck">
+                                    <label class="form-check-label" for="dropdownCheck">
+                                        Remember me
+                                    </label>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Sign in</button>
+                            </form>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">New around here? Sign up</a>
+                            <a class="dropdown-item" href="#">Forgot password?</a>
+                        </div>
+                    </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Services</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
+                    <a class="nav-link" href="contact.html">Contact</a>
                 </li>
             </ul>
         </div>
@@ -128,10 +300,25 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="footer">
+        Copyright
+    </div>
+</div>
 
-        <div class="footer">
-            Copyright
-        </div>
+        <script>
+            var myVar;
+            function myFunction() {
+                document.getElementById("wrap").style.opacity = "0.3";
+                myVar = setTimeout(showPage, 1500);
+            }
+
+            function showPage() {
+                document.getElementById("wrap").style.opacity = "1";
+                document.getElementById("wrap").style.overflow="auto";
+                document.getElementById("loader").style.display = "none";
+            }
+        </script>
 </body>
 
 
