@@ -1,7 +1,9 @@
 $(document).ready(function(){
 
+    //variabile per ottenere valore passato tramite URL, esegunedo la decodifica dell'URL
     var pageID=decodeURIComponent(window.location.search.trim());
 
+    //variabili server
     var itemSettings = {
         "async":true,
         "crossDomain":true,
@@ -18,6 +20,7 @@ $(document).ready(function(){
         "dataType":"json"
     }
 
+    //metodo per riempire il div listItems solo se il valore presente nell'URL corrisponde al brand dell'oggetto attualmente ciclato
     $.ajax(itemSettings).done(function(response){
         var item="";
         $.each(response, function(i, obj) {
@@ -41,6 +44,7 @@ $(document).ready(function(){
 
     });
 
+    //metodo per settare come active sulla lista brandList il brand corrispondente agli oggetti mostrati
     $.ajax(brandSettings).done(function(response){
         var brand="";
         var act;
@@ -51,7 +55,9 @@ $(document).ready(function(){
             else
                 act="";
             brand+='<a class="list-group-item list-group-item-action'+act+'"  href="category.html?id='+obj.brand+'">'+obj.brand+'</a>';
+            $(document).prop("title", "Parkour - "+pageID.substring(4,pageID.length));
         });+
         $("#brandList").append(brand);
+        
     });
 });
