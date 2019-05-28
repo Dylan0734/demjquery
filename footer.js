@@ -11,5 +11,6 @@ var minHeight = function(){
   var header = $(".menu").outerHeight();
   var footer = $(".footer").outerHeight();
   var height = wheight - (header + footer);
+  console.log(height);
   $(".container").attr("height", height);
 }
