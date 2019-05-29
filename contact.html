@@ -6,7 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="menu.css" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Audiowide|Jura&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
         crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" crossorigin="anonymous"></script>
@@ -18,7 +18,10 @@
     <script src="formScript.js"></script>
     <script src="footer.js"></script>
     <style>
-        
+        body{
+            background-color: ghostwhite;
+            font-family: Jura;
+        }
 
         .footer {
             width: 100%;
@@ -28,6 +31,15 @@
             text-align: center;
             margin-top: 30px;
             opacity:0.8;
+        }
+        #search{
+            width:100px;
+            float:left;
+            margin-bottom:-5px;
+        }
+        #intest{
+            width:200px;
+            float:left;
         }
 
         .menu {
@@ -47,20 +59,33 @@
             z-index:-2;
             position:fixed;
         }
+
+        .collapse, show{
+            z-index:6;
+            background-color: rgb(20,20,20);
+            left:70.23%;
+        }
+        .collapsing{
+            z-index:6;
+            background-color: rgb(20,20,20);
+            left:70.23%;
+        }
         
 
         .nav-link {
             color: white;
             text-decoration: none;
             display:block;
+            border:1px solid rgb(20,20,20);
             font-size:18px;
             transition:0.2s;
         }
         .nav-link:hover {
             color: white;
             text-decoration: none;
-            background-color:darkgrey;
-            border-radius:4px;
+            border-left-color:white;
+            border-bottom-color:white;
+            border-bottom-left-radius: 4px;
             transition:0.5s;
         }        
 
@@ -153,6 +178,55 @@
                 -webkit-transform: rotate(-360deg);
             }
         }
+        p:nth-child(1) a {
+            color: #FF9900;
+            font-family: Audiowide;
+            font-size:30px;
+        }
+
+        p:nth-child(1) a:hover {
+            -webkit-animation: neon5 1.5s ease-in-out infinite alternate;
+            -moz-animation: neon5 1.5s ease-in-out infinite alternate;
+            animation: neon5 1.5s ease-in-out infinite alternate;
+        }
+        p:nth-child(1)a:hover {
+            color: #ffffff;
+        }
+        @keyframes neon5 {
+            from {
+                text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #FF9900, 0 0 70px #FF9900, 0 0 80px #FF9900, 0 0 100px #FF9900, 0 0 150px #FF9900;
+            }
+            to {
+                text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #FF9900, 0 0 35px #FF9900, 0 0 40px #FF9900, 0 0 50px #FF9900, 0 0 75px #FF9900;
+            }
+        }
+
+        @-webkit-keyframes neon5 {
+            from {
+                text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #FF9900, 0 0 70px #FF9900, 0 0 80px #FF9900, 0 0 100px #FF9900, 0 0 150px #FF9900;
+            }
+            to {
+                text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #FF9900, 0 0 35px #FF9900, 0 0 40px #FF9900, 0 0 50px #FF9900, 0 0 75px #FF9900;
+            }
+        }
+
+        @-moz-keyframes neon5 {
+            from {
+                text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #FF9900, 0 0 70px #FF9900, 0 0 80px #FF9900, 0 0 100px #FF9900, 0 0 150px #FF9900;
+            }
+            to {
+                text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #FF9900, 0 0 35px #FF9900, 0 0 40px #FF9900, 0 0 50px #FF9900, 0 0 75px #FF9900;
+            }
+        }
+
+        @media (max-width: 650px) {
+            #container {
+                width: 100%;
+            }
+            p {
+                font-size: 3.5em;
+            }
+        }
     </style>
 </head>
 
@@ -168,52 +242,71 @@
     </div>
     <div id="wrap">
         <div class="menu">
-            <div style="width:49%; display:inline-block;">
-                <h3> Parkour</h3>
+            <div style="width:45%; margin-bottom:-30px; display:inline-block;">
+                <p id="intest"><a href="#" class="disabled">
+                    PARKOUR
+                </a></p>
             </div>
 
-            <div style="width:49%; display:inline-block;">
-                <ul class="nav justify-content-end">
-                    <li class="nav-item">
-                        <a class="nav-link active" href="index.html">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <div class="dropdown show">
-                            <a class="nav-link" href="#" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Log-In
-                            </a>
+            <div style="width:49%; margin:5px; display:inline-block;">
 
-                            <div class="dropdown-menu">
-                                <form class="px-4 py-3">
-                                    <div class="form-group">
-                                        <label for="exampleDropdownFormEmail1">Email address</label>
-                                        <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
+                <div class="pos-f-t">
+                    <nav class="navbar navbar-dark justify-content-end">
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </nav>
+                    <div class="collapse" id="navbarToggleExternalContent" style="position:absolute">
+                        <div class="p-4" align=right>
+                            <ul class="nav justify-content-end">
+                                <li class="nav-item">
+                                <a class="nav-link active" href="index.html">Home</a>
+                                </li>
+                                <li class="nav-item">
+                                    <div class="dropdown show">
+                                        <a class="nav-link" href="#" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Log-In
+                                        </a>
+
+                                        <div class="dropdown-menu"  style="z-index:4;">
+                                            <form class="px-4 py-3">
+                                                <div class="form-group">
+                                                    <label for="exampleDropdownFormEmail1">Email address</label>
+                                                    <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="exampleDropdownFormPassword1">Password</label>
+                                                    <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
+                                                </div>
+                                                <div class="form-check">
+                                                    <input type="checkbox" class="form-check-input" id="dropdownCheck">
+                                                    <label class="form-check-label" for="dropdownCheck">
+                                                    Remember me
+                                                </label>
+                                                </div>
+                                                <button type="submit" class="btn btn-primary">Sign in</button>
+                                            </form>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="#">New around here? Sign up</a>
+                                            <a class="dropdown-item" href="#">Forgot password?</a>
+                                        </div>
                                     </div>
-                                    <div class="form-group">
-                                        <label for="exampleDropdownFormPassword1">Password</label>
-                                        <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password">
-                                    </div>
-                                    <div class="form-check">
-                                        <input type="checkbox" class="form-check-input" id="dropdownCheck">
-                                        <label class="form-check-label" for="dropdownCheck">
-                                            Remember me
-                                        </label>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary">Sign in</button>
-                                </form>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">New around here? Sign up</a>
-                                <a class="dropdown-item" href="#">Forgot password?</a>
-                            </div>
-                        </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
-                    </li>
-                </ul>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Services</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="contact.html">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                </div>
+                
             </div>
+
         </div>
         <div class="container">
             <div class="row">
@@ -236,9 +329,9 @@
 
                             <!-- Mail input-->
                             <div class="form-group">
-                                <label class="col-md-7 control-label" for="mail">Indirizzo mail: </label>
+                                <label class="col-md-7 control-label" for="mail">Oggetto: </label>
                                 <div class="col-md-7">
-                                    <input id="mail" name="mail" type="email" placeholder="Inserisci la mail" class="form-control input-md" required="">
+                                    <input id="sub" name="sub" type="text" placeholder="Oggetto..." class="form-control input-md" required="">
 
                                 </div>
                             </div>
