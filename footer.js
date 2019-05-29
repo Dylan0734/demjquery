@@ -1,15 +1,17 @@
 $(document).ready(function(){
-  minHeight();
+    minHeight();
 });
 
 $(window).resize(function(){
-  minHeight();
+    minHeight();
 });
 
 var minHeight = function(){
-  var wheight = $(window).height();
-  var header = $(".menu").outerHeight();
-  var footer = $(".footer").outerHeight();
-  var height = wheight - (header + footer);
-  $(".container").attr("height", height);
-}
+    var wheight = $(window).height();
+    var header = $(".menu").outerHeight();
+    var footer = $(".footer").outerHeight();
+    var height = wheight - (header+footer);
+    $(".container").css("min-height", height);
+
+};
+    
