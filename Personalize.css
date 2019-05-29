@@ -1,5 +1,7 @@
 body {
     background-color:white;
+    font-family: Jura;
+    overflow-x:hidden;
     }
 
 
@@ -15,6 +17,10 @@ body {
             
         }
 
+        #brandList{
+            opacity:0.8;
+        }
+
         .footer {
             width: 100%;
             height: 50px;
@@ -23,6 +29,15 @@ body {
             text-align: center;
             margin-top: 30px;
             opacity:0.8;
+        }
+
+        #search{
+            width:100px;
+            float:left;
+        }
+        #intest{
+            width:200px;
+            float:left;
         }
 
         .menu {
@@ -34,36 +49,48 @@ body {
             border:0px solid lightgrey;
         }
 
+        .collapse, show{
+            z-index:6;
+            background-color: rgb(20,20,20);
+            left:70.23%;
+        }
+        .collapsing{
+            z-index:6;
+            background-color: rgb(20,20,20);
+            left:70.23%;
+        }
+
+
+
         #backgroundOP{
             background:url("https://wallpaperset.com/w/full/3/9/c/315017.jpg");
-            opacity:0.5;
+            opacity:0.8;
             width:100%;
             height:100%; 
             z-index:-2;
             position:fixed;
         }
 
-        #hamb{
-            float:left;
-            
-        }
 
         .nav-link {
             color: white;
             text-decoration: none;
             display:block;
+            border:1px solid rgb(20,20,20);
             font-size:18px;
             transition:0.2s;
         }
         .nav-link:hover {
             color: white;
             text-decoration: none;
-            background-color:darkgrey;
-            border-radius:4px;
+            border-left-color:white;
+            border-bottom-color:white;
+            border-bottom-left-radius: 4px;
             transition:0.5s;
-        }
+        }   
         .container{
             min-height:800px;
+            overflow:hidden;
         }
 
         .card-body {
@@ -179,5 +206,55 @@ body {
             100% {
                 transform: rotate(-360deg);
                 -webkit-transform: rotate(-360deg);
+            }
+        }
+
+        p:nth-child(1) a {
+            color: #FF9900;
+            font-family: Audiowide;
+            font-size:30px;
+        }
+
+        p:nth-child(1) a:hover {
+            -webkit-animation: neon5 1.5s ease-in-out infinite alternate;
+            -moz-animation: neon5 1.5s ease-in-out infinite alternate;
+            animation: neon5 1.5s ease-in-out infinite alternate;
+        }
+        p:nth-child(1)a:hover {
+            color: #ffffff;
+        }
+        @keyframes neon5 {
+            from {
+                text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #FF9900, 0 0 70px #FF9900, 0 0 80px #FF9900, 0 0 100px #FF9900, 0 0 150px #FF9900;
+            }
+            to {
+                text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #FF9900, 0 0 35px #FF9900, 0 0 40px #FF9900, 0 0 50px #FF9900, 0 0 75px #FF9900;
+            }
+        }
+
+        @-webkit-keyframes neon5 {
+            from {
+                text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #FF9900, 0 0 70px #FF9900, 0 0 80px #FF9900, 0 0 100px #FF9900, 0 0 150px #FF9900;
+            }
+            to {
+                text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #FF9900, 0 0 35px #FF9900, 0 0 40px #FF9900, 0 0 50px #FF9900, 0 0 75px #FF9900;
+            }
+        }
+
+        @-moz-keyframes neon5 {
+            from {
+                text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #FF9900, 0 0 70px #FF9900, 0 0 80px #FF9900, 0 0 100px #FF9900, 0 0 150px #FF9900;
+            }
+            to {
+                text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #FF9900, 0 0 35px #FF9900, 0 0 40px #FF9900, 0 0 50px #FF9900, 0 0 75px #FF9900;
+            }
+        }
+
+        @media (max-width: 650px) {
+            #container {
+                width: 100%;
+            }
+            p {
+                font-size: 3.5em;
             }
         }
